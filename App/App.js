@@ -22,11 +22,18 @@ import StacksOverTabs from './StacksOverTabs';
 import SimpleStack from './SimpleStack';
 import SimpleTabs from './SimpleTabs';
 
+import SimpleStackES6 from './SimpleStackES6';
+
 const ExampleRoutes = {
   SimpleStack: {
     name: 'Stack Example',
     description: 'A card stack',
     screen: SimpleStack,
+  },
+  SimpleStackES6: {
+    name: 'Stack Example ES6',
+    description: 'A card stack',
+    screen: SimpleStackES6,
   },
   SimpleTabs: {
     name: 'Tabs Example',
