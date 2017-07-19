@@ -11,7 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-import App from './App/App'
+import App from './AppExpo/App'
 
 export default class ReactNavigationEx extends Component {
   render() {
