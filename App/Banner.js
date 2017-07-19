@@ -4,13 +4,19 @@ import React from 'react';
 
 import { Image, Platform, StyleSheet, Text, View } from 'react-native';
 
-const Banner = () => (
-  <View style={styles.banner}>
-    <Image source={require('./assets/NavLogo.png')} style={styles.image} />
-    <Text style={styles.title}>React Navigation Examples</Text>
-  </View>
-);
-
+class Banner extends React.Component {
+  static defaultProps = {
+    title: 'React Navigation Examples',
+  };  // 注意这里有分号
+  render() {
+    return (
+      <View style={styles.banner}>
+        <Image source={require('./assets/NavLogo.png')} style={styles.image} />
+        <Text style={styles.title}>{this.props.title }</Text>
+      </View>
+    );
+  }
+}
 export default Banner;
 
 const styles = StyleSheet.create({
