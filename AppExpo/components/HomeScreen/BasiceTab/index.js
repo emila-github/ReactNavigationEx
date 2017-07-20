@@ -4,6 +4,7 @@ import State from './State';
 import Style from './Style';
 import HeightAndWidth from './HeightAndWidth';
 import HeightAndWidthFlex from './HeightAndWidthFlex';
+import LayoutWithFlexbox from './LayoutWithFlexbox';
 
 
 const ExampleRoutes = {
@@ -36,6 +37,14 @@ const ExampleRoutes = {
     name: '弹性（Flex）宽高',
     description: '在组件样式中使用flex可以使其在可利用的空间中动态地扩张或收缩。',
     screen: HeightAndWidthFlex,
+  },
+  LayoutWithFlexbox: {
+    name: 'Flex Direction',
+    description: `
+      一般来说，使用flexDirection、alignItems和 justifyContent三个样式属性就已经能满足大多数布局需求
+      在组件的style中指定flexDirection可以决定布局的主轴。子元素是应该沿着水平轴(row)方向排列，还是沿着竖直轴(column)方向排列呢？默认值是竖直轴(column)方向。
+      `,
+    screen: LayoutWithFlexbox,
   },
 };
 
