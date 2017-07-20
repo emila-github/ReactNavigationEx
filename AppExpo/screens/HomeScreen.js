@@ -8,10 +8,11 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';``
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HelloWorld from '../components/HomeScreen/BasiceTab/HelloWorld';
+import Props from '../components/HomeScreen/BasiceTab/Props';
 
 const BasicsExampleRoutes = {
   HelloWorld: {
@@ -19,11 +20,22 @@ const BasicsExampleRoutes = {
     description: 'Hello World!',
     screen: HelloWorld,
   },
+  Props: {
+    name: 'Props',
+    description: '大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为props（属性）。',
+    screen: Props,
+  },
 };
+
+// Object.keys(BasicsExampleRoutes).map(routeName => {
+//   BasicsExampleRoutes[routeName].navigationOptions = {
+//     title: BasicsExampleRoutes[routeName]['name']
+//   };
+// });
 
 const MyNavScreen = ({ navigation, banner, exampleRoutes = {} }) => (
   <ScrollView style={styles.container}>
-    <Text>{banner}</Text>
+    {/*<Text>{banner}</Text>*/}
     {Object.keys(exampleRoutes).map((routeName: string) => (
       <TouchableOpacity
         key={routeName}
@@ -31,6 +43,9 @@ const MyNavScreen = ({ navigation, banner, exampleRoutes = {} }) => (
           const { path, params, screen } = exampleRoutes[routeName];
           const { router } = screen;
           const action = path && router.getActionForPathAndParams(path, params);
+          exampleRoutes[routeName].navigationOptions = {
+            title: exampleRoutes[routeName]['name']
+          }
           navigation.navigate(routeName, {}, action);
         }}
       >
@@ -43,7 +58,7 @@ const MyNavScreen = ({ navigation, banner, exampleRoutes = {} }) => (
       </TouchableOpacity>
     ))}
 
-    <Button onPress={() => navigation.goBack(null)} title="Go back" />
+    {/*<Button onPress={() => navigation.goBack(null)} title="Go back" />*/}
   </ScrollView>
 );
 
