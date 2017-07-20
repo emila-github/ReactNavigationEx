@@ -10,14 +10,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import NavExScreen from '../screens/NavExScreen';
 import MyScreen from '../screens/MyScreen';
 
 export default TabNavigator(
   {
-    Home: {
+    RootHome: {
       screen: HomeScreen,
-      path: '/',
+      path: '/home',
       navigationOptions: {
         // tabBarLabel: 'Home',
         /*tabBarIcon: ({ tintColor, focused }) => (
@@ -29,7 +29,7 @@ export default TabNavigator(
         ),*/
       },
     },
-    Links: {
+    RootLinks: {
       screen: LinksScreen,
       path: '/links',
       navigationOptions: {
@@ -43,9 +43,9 @@ export default TabNavigator(
         ),*/
       },
     },
-    Settings: {
-      screen: SettingsScreen,
-      path: '/settings',
+    RootNavEx: {
+      screen: NavExScreen,
+      path: '/navEx',
       navigationOptions: {
         // tabBarLabel: 'Home',
         /*tabBarIcon: ({ tintColor, focused }) => (
@@ -57,7 +57,7 @@ export default TabNavigator(
         ),*/
       },
     },
-    My: {
+    RootMy: {
       screen: MyScreen,
       path: '/my',
     }
@@ -67,23 +67,23 @@ export default TabNavigator(
     navigationOptions: ({ navigation }) => ({
       tabBarLabel: () => {
         const { routeName } = navigation.state;
-        return routeName;
+        return routeName.replace(/Root/g, '');
       },
       // Set the tab bar icon
       tabBarIcon: ({ tintColor, focused }) => {
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Home':
+          case 'RootHome':
             iconName = 'home';
             break;
-          case 'Links':
+          case 'RootLinks':
             iconName = 'book';
             break;
-          case 'My':
+          case 'RootMy':
             iconName = 'egg';
             break;
-          case 'Settings':
+          case 'RootNavEx':
             iconName = 'cog';
         }
         return (
@@ -102,6 +102,7 @@ export default TabNavigator(
     }),
     // Put tab bar on bottom of screen on both platforms
     tabBarComponent: TabBarBottom,
+    // swipeEnabled: false,
     tabBarPosition: 'bottom',
     // Disable animation so that iOS/Android have same behaviors
     animationEnabled: false,

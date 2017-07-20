@@ -23,7 +23,7 @@ const MyNavScreen = ({ navigation, banner }) => (
 );
 
 const MyHomeScreen = ({ navigation }) => (
-  <MyNavScreen banner="Home Screen" navigation={navigation} />
+  <MyNavScreen banner="Home Screen - SimpleStack" navigation={navigation} />
 );
 MyHomeScreen.navigationOptions = {
   title: 'Welcome',

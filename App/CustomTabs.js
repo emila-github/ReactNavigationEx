@@ -33,7 +33,7 @@ const MyNavScreen = ({ navigation, banner }) => (
 );
 
 const MyHomeScreen = ({ navigation }) => (
-  <MyNavScreen banner="Home Screen" navigation={navigation} />
+  <MyNavScreen banner="Home Screen - CustomTabs" navigation={navigation} />
 );
 
 const MyNotificationsScreen = ({ navigation }) => (

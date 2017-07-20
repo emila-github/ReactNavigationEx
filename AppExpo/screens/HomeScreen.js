@@ -1,82 +1,137 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import { 
+  Button,
   Platform,
   ScrollView,
   StyleSheet,
+  View,
   TouchableOpacity,
   Text,
-  View,
 } from 'react-native';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { StackNavigator } from 'react-navigation';
-import SimpleStack from '../../App/SimpleStack';
-import HomePage1 from '../components/HomePage1';
+import HelloWorld from '../components/HomeScreen/BasiceTab/HelloWorld';
 
-const ExampleRoutes = {
-	HomePage1: {
-    name: 'HomePage1',
-    description: 'HomePage1',
-    screen: HomePage1,
-	},
-  SimpleStack: {
-    name: 'Stack Example',
-    description: 'A card stack',
-    screen: SimpleStack,
+const BasicsExampleRoutes = {
+  HelloWorld: {
+    name: 'Hello World',
+    description: 'Hello World!',
+    screen: HelloWorld,
   },
+};
 
+const MyNavScreen = ({ navigation, banner, exampleRoutes = {} }) => (
+  <ScrollView style={styles.container}>
+    <Text>{banner}</Text>
+    {Object.keys(exampleRoutes).map((routeName: string) => (
+      <TouchableOpacity
+        key={routeName}
+        onPress={() => {
+          const { path, params, screen } = exampleRoutes[routeName];
+          const { router } = screen;
+          const action = path && router.getActionForPathAndParams(path, params);
+          navigation.navigate(routeName, {}, action);
+        }}
+      >
+        <View style={styles.item}>
+          <Text style={styles.title}>{exampleRoutes[routeName].name}</Text>
+          <Text style={styles.description}>
+            {exampleRoutes[routeName].description}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    ))}
+
+    <Button onPress={() => navigation.goBack(null)} title="Go back" />
+  </ScrollView>
+);
+
+const BasicsScreen = ({ navigation }) => (
+  <MyNavScreen banner="Basics Tab" navigation={navigation} exampleRoutes={BasicsExampleRoutes} />
+);
+
+BasicsScreen.navigationOptions = {
+  tabBarLabel: 'Basics',
+  tabBarIcon: ({ tintColor, focused }) => (
+    <Ionicons
+      name={focused ? 'ios-home' : 'ios-home-outline'}
+      size={26}
+      style={{ color: tintColor }}
+    />
+  ),
+};
+
+const ComponentsScreen = ({ navigation }) => (
+  <MyNavScreen banner="Components Tab" navigation={navigation} />
+);
+
+ComponentsScreen.navigationOptions = {
+  tabBarLabel: 'Components',
+  tabBarIcon: ({ tintColor, focused }) => (
+    <Ionicons
+      name={focused ? 'ios-people' : 'ios-people-outline'}
+      size={26}
+      style={{ color: tintColor }}
+    />
+  ),
+};
+
+const APIsScreen = ({ navigation }) => (
+  <MyNavScreen banner="APIs Tab" navigation={navigation} />
+);
+
+APIsScreen.navigationOptions = {
+  tabBarLabel: 'APIs',
+  tabBarIcon: ({ tintColor, focused }) => (
+    <Ionicons
+      name={focused ? 'ios-chatboxes' : 'ios-chatboxes-outline'}
+      size={26}
+      style={{ color: tintColor }}
+    />
+  ),
 };
 
 
-
-class HomeScreen extends Component {
-	render() {
-		return (
-			<ScrollView>
-				<Text>HomeScreen</Text>
-				{Object.keys(ExampleRoutes).map((routeName: string) => (
-					<TouchableOpacity
-						key={routeName}
-						onPress={() => {
-							const { path, params, screen } = ExampleRoutes[routeName];
-							const { router } = screen;
-							const action = path && router.getActionForPathAndParams(path, params);
-							this.props.navigation.navigate(routeName, {}, action);
-						}}
-					>
-						<View style={styles.item}>
-							<Text style={styles.title}>{ExampleRoutes[routeName].name}</Text>
-							<Text style={styles.description}>
-								{ExampleRoutes[routeName].description}
-							</Text>
-						</View>
-					</TouchableOpacity>
-				))}				
-			</ScrollView>
-		);
-	}
-}
-
-const SN = StackNavigator({
-		Home: {
-			screen: HomeScreen,
-			path: '/'
-		},
-		...ExampleRoutes,
-	},
+const SimpleTabs = TabNavigator(
   {
-    navigationOptions: () => ({
-			title: 'home',
-			// header: (
-			// 	<View></View>
-			// ),
-      // header: null,
-      headerTitleStyle: {
-        fontWeight: 'normal',
-      },
-    }),
-  });
-export default SN;
+    HomeBasics: {
+      screen: BasicsScreen,
+      // path: '',
+    },
+    HomeComponents: {
+      screen: ComponentsScreen,
+      // path: 'cart',
+    },
+    HomeAPIs: {
+      screen: APIsScreen,
+      // path: 'chat',
+    }
+  },
+  {
+    tabBarPosition: 'top',
+    animationEnabled: false,
+    swipeEnabled: false,
+    tabBarOptions: {
+      // showIcon: true,
+      activeTintColor: Platform.OS === 'ios' ? '#e91e63' : '#fff',
+    },
+  }
+);
 
+
+const SimpleApp = StackNavigator({
+  // 使用 header:null 去掉StackNavigator的导航栏头部
+  Home: {
+    screen: SimpleTabs,
+    navigationOptions: ({navigation, tintColor}) => ({
+      header: null,
+      // title: '17173',
+      // headerTintColor: 'blue',
+    }),
+  },
+  ...BasicsExampleRoutes,
+})
 
 const styles = StyleSheet.create({
   item: {
@@ -103,3 +158,5 @@ const styles = StyleSheet.create({
     color: '#999',
   },
 });
+
+export default SimpleApp;
