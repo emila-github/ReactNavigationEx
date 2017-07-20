@@ -3,6 +3,7 @@ import Props from './Props';
 import State from './State';
 import Style from './Style';
 import HeightAndWidth from './HeightAndWidth';
+import HeightAndWidthFlex from './HeightAndWidthFlex';
 
 
 const ExampleRoutes = {
@@ -30,6 +31,11 @@ const ExampleRoutes = {
     name: 'Height and Width',
     description: '高度与宽度,React Native中的尺寸都是无单位的，表示的是与设备像素密度无关的逻辑像素点',
     screen: HeightAndWidth,
+  },
+  HeightAndWidthFlex: {
+    name: '弹性（Flex）宽高',
+    description: '在组件样式中使用flex可以使其在可利用的空间中动态地扩张或收缩。',
+    screen: HeightAndWidthFlex,
   },
 };
 
