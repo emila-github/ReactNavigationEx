@@ -13,6 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import HelloWorld from '../components/HomeScreen/BasiceTab/HelloWorld';
 import Props from '../components/HomeScreen/BasiceTab/Props';
+import State from '../components/HomeScreen/BasiceTab/State';
 
 const BasicsExampleRoutes = {
   HelloWorld: {
@@ -24,6 +25,11 @@ const BasicsExampleRoutes = {
     name: 'Props',
     description: '大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为props（属性）。',
     screen: Props,
+  },
+  State: {
+    name: 'State',
+    description: '我们使用两种数据来控制一个组件：props和state。props是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state。',
+    screen: State,
   },
 };
 
