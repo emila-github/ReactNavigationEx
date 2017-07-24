@@ -27,6 +27,7 @@ Yarn是Facebook提供的替代npm的工具，可以加速node模块的下载。R
 ## 参考资料 ##
 
 - [搭建开发环境](http://reactnative.cn/docs/0.42/getting-started.html)
+- [官方文档](https://facebook.github.io/react-native/)
 - [React Navigation](https://reactnavigation.org/docs/intro/)
 
 
