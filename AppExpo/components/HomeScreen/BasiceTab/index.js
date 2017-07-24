@@ -7,6 +7,8 @@ import HeightAndWidthFlex from './HeightAndWidthFlex';
 import LayoutWithFlexbox from './LayoutWithFlexbox';
 import LayoutWithFlexboxJustifyContent from './LayoutWithFlexboxJustifyContent';
 import LayoutWithFlexboxAlignItems from './LayoutWithFlexboxAlignItems';
+import HandlingTextInput from './HandlingTextInput';
+import DisplayingABasicButton from './DisplayingABasicButton';
 
 
 const ExampleRoutes = {
@@ -63,6 +65,22 @@ const ExampleRoutes = {
       子元素是应该靠近次轴的起始端还是末尾段分布呢？亦或应该均匀分布？对应的这些可选项有：flex-start、center、flex-end以及stretch。
       `,
     screen: LayoutWithFlexboxAlignItems,
+  },
+  HandlingTextInput: {
+    name: 'Handling Text Input',
+    description: `
+      TextInput是一个允许用户输入文本的基础组件。
+      它有一个名为onChangeText的属性，此属性接受一个函数，而此函数会在文本变化时被调用。
+      另外还有一个名为onSubmitEditing的属性，会在文本被提交后（用户按下软键盘上的提交键）调用
+      `,
+    screen: HandlingTextInput,
+  },
+  DisplayingABasicButton: {
+    name: 'Displaying a basic button',
+    description: `
+
+      `,
+    screen: DisplayingABasicButton,
   },
 };
 

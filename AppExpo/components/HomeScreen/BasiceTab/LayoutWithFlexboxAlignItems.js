@@ -11,7 +11,7 @@ export default class AlignItemsBasics extends Component {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-start',
       }}>
                 <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
                 <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
