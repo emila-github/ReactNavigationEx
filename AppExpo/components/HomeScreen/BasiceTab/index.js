@@ -10,6 +10,7 @@ import LayoutWithFlexboxAlignItems from './LayoutWithFlexboxAlignItems';
 import HandlingTextInput from './HandlingTextInput';
 import DisplayingABasicButton from './DisplayingABasicButton';
 import TouchableHighlight from './TouchableHighlight';
+import ScrollView from './ScrollView';
 
 
 const ExampleRoutes = {
@@ -89,6 +90,14 @@ const ExampleRoutes = {
 
       `,
     screen: TouchableHighlight,
+  },
+  ScrollView: {
+    name: 'Using a ScrollView',
+    description: `
+      ScrollView是一个通用的可滚动的容器，你可以在其中放入多个组件和视图，而且这些组件并不需要是同类型的。
+      ScrollView不仅可以垂直滚动，还能水平滚动（通过horizontal属性来设置）。
+      `,
+    screen: ScrollView,
   },
 };
 
