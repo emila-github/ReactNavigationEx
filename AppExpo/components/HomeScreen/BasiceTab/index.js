@@ -9,6 +9,7 @@ import LayoutWithFlexboxJustifyContent from './LayoutWithFlexboxJustifyContent';
 import LayoutWithFlexboxAlignItems from './LayoutWithFlexboxAlignItems';
 import HandlingTextInput from './HandlingTextInput';
 import DisplayingABasicButton from './DisplayingABasicButton';
+import TouchableHighlight from './TouchableHighlight';
 
 
 const ExampleRoutes = {
@@ -81,6 +82,13 @@ const ExampleRoutes = {
 
       `,
     screen: DisplayingABasicButton,
+  },
+  TouchableHighlight: {
+    name: 'Touchable Highlight',
+    description: `
+
+      `,
+    screen: TouchableHighlight,
   },
 };
 
