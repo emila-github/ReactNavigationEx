@@ -11,6 +11,11 @@ import HandlingTextInput from './HandlingTextInput';
 import DisplayingABasicButton from './DisplayingABasicButton';
 import TouchableHighlight from './TouchableHighlight';
 import ScrollView from './ScrollView';
+import FlatList from './FlatList';
+import SectionList from './SectionList';
+import GetMoviesFromApiAsync from './GetMoviesFromApiAsync';
+import ListViewBasics from './ListViewBasics';
+import FetchDataToListView from './FetchDataToListView';
 
 
 const ExampleRoutes = {
@@ -98,6 +103,41 @@ const ExampleRoutes = {
       ScrollView不仅可以垂直滚动，还能水平滚动（通过horizontal属性来设置）。
       `,
     screen: ScrollView,
+  },
+  FlatList: {
+    name: 'Using List Views - FlatList',
+    description: `
+      FlatList
+      `,
+    screen: FlatList,
+  },
+  SectionList: {
+    name: 'Using List Views - SectionList',
+    description: `
+      SectionList
+      `,
+    screen: SectionList,
+  },
+  ListViewBasics: {
+    name: 'Using List Views - ListViewBasics',
+    description: `
+      ListViewBasics
+      `,
+    screen: ListViewBasics,
+  },
+  FetchDataToListView: {
+    name: 'Using List Views - FetchDataToListView',
+    description: `
+      FetchDataToListView
+      `,
+    screen: FetchDataToListView,
+  },
+  GetMoviesFromApiAsync: {
+    name: 'GetMoviesFromApiAsync',
+    description: `
+      GetMoviesFromApiAsync
+      `,
+    screen: GetMoviesFromApiAsync,
   },
 };
 
